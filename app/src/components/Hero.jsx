@@ -13,6 +13,7 @@ function Hero({ addTask }) {
         if(title.trim() === "") return;
 
         addTask({
+            id: Date.now(),
             title,
             completed:false
         });

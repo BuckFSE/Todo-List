@@ -1,37 +1,95 @@
-function TaskList({tasks}) {
+import { useState } from "react";
 
+function TaskList({ tasks, deleteTask, editTask }) {
 
+    const [editingId, setEditingId] = useState(null);
+    const [editedTitle, setEditedTitle] = useState("");
 
-  return (
-    <section className="tasks">
+    function startEditing(task) {
+        setEditingId(task.id);
+        setEditedTitle(task.title);
+    }
 
-      <h2>My Tasks</h2>
+    function saveEdit(id) {
 
-      {tasks.map((task, index) => (
+        if (editedTitle.trim() === "") return;
 
-        <div className="task-card" key={index}>
+        editTask(id, editedTitle);
 
-          <div>
+        setEditingId(null);
+        setEditedTitle("");
 
-            <h3>{task.title}</h3>
+    }
 
-            <p>{task.priority}</p>
+    return (
 
-          </div>
+        <section className="tasks">
 
-          <span>{task.due}</span>
+            <h2>My Tasks</h2>
 
-          <div>
-            <button>Edit</button>
-            <button>Delete</button>
-          </div>
+            {tasks.length === 0 ? (
 
-        </div>
+                <p>No tasks yet.</p>
 
-      ))}
+            ) : (
 
-    </section>
-  );
+                tasks.map(task => (
+
+                    <div className="task-card" key={task.id}>
+
+                        {editingId === task.id ? (
+
+                            <input
+                                value={editedTitle}
+                                onChange={(e) =>
+                                    setEditedTitle(e.target.value)
+                                }
+                            />
+
+                        ) : (
+
+                            <h3>{task.title}</h3>
+
+                        )}
+
+                        <div className="buttons">
+
+                            {editingId === task.id ? (
+
+                                <button
+                                    onClick={() => saveEdit(task.id)}
+                                >
+                                    Save
+                                </button>
+
+                            ) : (
+
+                                <button
+                                    onClick={() => startEditing(task)}
+                                >
+                                    Edit
+                                </button>
+
+                            )}
+
+                            <button
+                                onClick={() => deleteTask(task.id)}
+                            >
+                                Delete
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                ))
+
+            )}
+
+        </section>
+
+    );
+
 }
 
 export default TaskList;

@@ -16,6 +16,22 @@ function App() {
 
   }
 
+  function deleteTask(id) {
+    setTasks(tasks.filter(task => task.id !== id));
+}
+
+function editTask(id, newTitle) {
+
+    setTasks(
+        tasks.map(task =>
+            task.id === id
+                ? { ...task, title: newTitle }
+                : task
+        )
+    );
+
+}
+
   return (
     <div className="app">
 
@@ -29,7 +45,7 @@ function App() {
 
         <QuickActions />
 
-        <TaskList tasks={tasks}/>
+        <TaskList tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
 
       </main>
 
