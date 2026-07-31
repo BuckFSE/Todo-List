@@ -19,6 +19,7 @@ function Hero({ addTask }) {
             completed:false,
             important
         });
+       
 
         setTitle("");
 

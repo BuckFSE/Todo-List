@@ -1,16 +1,26 @@
 # React + Vite
+nmp run dev 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+What problem does your application solve? helps people remember what they alread done and need to do
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+What value does it create for the user? shows what they need to do instead of having to remember everything
 
-## React Compiler
+Why did you choose this solution? to help people keep track of things they need to get done
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+How did you decide what to build first? created the layout so users could see and use the website then focused on the functionality
 
-## Expanding the ESLint configuration
+How did Ai help during development? i used Ai like and assistant to help with ideas, code and errors
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Was there a time you questioned or challenged Ai? yes i would ask why or is it the best way to go approach it. for example ai used date.now to give the tasks ids and questioned why it chose that. And sometimes it over codes/ repeat code so i would take the part i needed.
+
+What was the most interesting bug you encountered and how did you solve it? when i marked a task as important it could be changed by clicking it, i realised i had the toggle in the actual task list instead of just the input form
+
+How did you verify that your application worked correcty? i tested each feature as i built it and i used react developer tools
+
+If you had another weekend to improve your project, what would you add or change? i would style it better and add acounts so users could save it
+
+What part of your project are you most proud of and why? the task management feature, becuase users and add, edit, delete and mark as complete when they completed it
+
+
+

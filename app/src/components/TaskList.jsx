@@ -32,7 +32,7 @@ function TaskList({ tasks, deleteTask, editTask, toggleCompleted}) {
                 <p>No tasks yet.</p>
 
             ) : (
-
+ 
                 tasks.map(task => (
 
                     <div className="task-card" key={task.id}>
