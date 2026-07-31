@@ -14,8 +14,6 @@ function Navbar() {
 
         <a href="#">📅 Calendar</a>
 
-        <a href="#">⚙ Settings</a>
-
       </nav>
 
     </aside>

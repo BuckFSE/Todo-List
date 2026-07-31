@@ -1,9 +1,8 @@
 import "./App.css";
 import { useState } from "react";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
-import QuickActions from "./components/QuickActions";
 import TaskList from "./components/TaskList";
 
 function App() {
@@ -29,13 +28,24 @@ function editTask(id, newTitle) {
                 : task
         )
     );
+}
+
+function toggleCompleted(id) {
+
+    setTasks(
+        tasks.map(task =>
+            task.id === id
+                ? { ...task, completed: !task.completed }
+                : task
+        )
+    );
 
 }
 
   return (
     <div className="app">
 
-      <Navbar />
+      {/* <Navbar /> */}
 
       <main className="main-content">
 
@@ -43,9 +53,12 @@ function editTask(id, newTitle) {
 
         <Stats tasks={tasks}/>
 
-        <QuickActions />
-
-        <TaskList tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
+        <TaskList
+          tasks={tasks}
+          deleteTask={deleteTask}
+          editTask={editTask}
+          toggleCompleted={toggleCompleted}
+        />
 
       </main>
 

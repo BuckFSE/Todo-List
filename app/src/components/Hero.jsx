@@ -3,8 +3,9 @@ import { useState } from "react";
 function Hero({ addTask }) {
 
     const [showForm, setShowForm] = useState(false);
-
     const [title, setTitle] = useState("");
+    const [important, setImportant] = useState(false);
+ 
 
     function handleSubmit(e){
 
@@ -15,7 +16,8 @@ function Hero({ addTask }) {
         addTask({
             id: Date.now(),
             title,
-            completed:false
+            completed:false,
+            important
         });
 
         setTitle("");
@@ -50,6 +52,20 @@ function Hero({ addTask }) {
                         value={title}
                         onChange={(e)=>setTitle(e.target.value)}
                     />
+
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            checked={important}
+                            onChange={(e) => setImportant(e.target.checked)}
+                        />
+
+                        Mark as Important
+
+                    </label>
+
 
                     <button type="submit">
                         Add

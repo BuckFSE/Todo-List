@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TaskList({ tasks, deleteTask, editTask }) {
+function TaskList({ tasks, deleteTask, editTask, toggleCompleted}) {
 
     const [editingId, setEditingId] = useState(null);
     const [editedTitle, setEditedTitle] = useState("");
@@ -37,6 +37,19 @@ function TaskList({ tasks, deleteTask, editTask }) {
 
                     <div className="task-card" key={task.id}>
 
+                    <div className="task-left">
+                      <input
+                        type="checkbox"
+                        checked={task.completed}
+                        onChange={() => toggleCompleted(task.id)}
+                      />
+
+                       <button
+                            className="star-btn"
+                        >
+                            {task.important ? "⭐" : ""}
+                        </button>
+
                         {editingId === task.id ? (
 
                             <input
@@ -48,9 +61,10 @@ function TaskList({ tasks, deleteTask, editTask }) {
 
                         ) : (
 
-                            <h3>{task.title}</h3>
+                            <h3 className={task.completed ? "completed" : ""}>{task.title}</h3>
 
                         )}
+                        </div>
 
                         <div className="buttons">
 
@@ -77,6 +91,8 @@ function TaskList({ tasks, deleteTask, editTask }) {
                             >
                                 Delete
                             </button>
+
+                            
 
                         </div>
 

@@ -1,26 +1,34 @@
-function Stats() {
+function Stats({ tasks }) {
+
+ const totalTasks = tasks.length;
+
+    const completedTasks = tasks.filter(
+        task => task.completed
+    ).length;
+
+    const importantTasks = tasks.filter(
+        task => task.important
+    ).length;
+
+    
+
   return (
     <section className="stats">
 
-      <div className="card">
-        <h3>8</h3>
-        <p>Tasks Today</p>
-      </div>
+       <div className="card">
+        <h3>{totalTasks}</h3>
+        <p>Total Tasks</p>
+    </div>
 
-      <div className="card">
-        <h3>15</h3>
+    <div className="card">
+        <h3>{completedTasks}</h3>
         <p>Completed</p>
-      </div>
+    </div>
 
-      <div className="card">
-        <h3>3</h3>
-        <p>Due Today</p>
-      </div>
-
-      <div className="card">
-        <h3>5</h3>
-        <p>Upcoming</p>
-      </div>
+    <div className="card">
+        <h3>{importantTasks}</h3>
+        <p>Important</p>
+    </div>
 
     </section>
   );
